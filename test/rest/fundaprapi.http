@@ -1,0 +1,5 @@
+### 
+GET http://localhost:7071/api/DaprHttpTrigger HTTP/1.1
+
+###
+GET http://localhost:3500/v1.0/invoke/fundaprapi/method/api/daprhttptrigger HTTP/1.1

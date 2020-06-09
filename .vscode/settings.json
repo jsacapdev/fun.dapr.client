@@ -1,0 +1,8 @@
+{
+  "azureFunctions.deploySubpath": "src/fundaprapi/bin/Release/netcoreapp3.1/publish",
+  "azureFunctions.projectSubpath": "src/fundaprapi",
+  "azureFunctions.projectLanguage": "C#",
+  "azureFunctions.projectRuntime": "~2",
+  "debug.internalConsoleOptions": "neverOpen",
+  "azureFunctions.preDeployTask": "publish"
+}

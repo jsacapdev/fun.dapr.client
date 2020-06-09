@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "clean",
+      "command": "dotnet",
+      "args": [
+        "clean",
+        "./fundaprclient.sln",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "type": "process",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "./fundaprclient.sln",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "type": "process",
+      "dependsOn": "clean",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "runFunctionsHost",
+      "type": "shell",
+      "dependsOn": "build",
+      "options": {
+        "cwd": "${workspaceFolder}/src/fundaprapi/bin/Debug/netcoreapp3.1"
+      },
+      "command": "func host start",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": "$func-watch"
+    },
+    {
+      "appId": "app",
+      "appPort": 7071,
+      "label": "daprd-debug",
+      "type": "daprd"
+    },
+    {
+      "appId": "app",
+      "label": "daprd-down",
+      "type": "daprd-down"
+    }
+  ]
+}
